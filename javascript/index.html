@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Card</title>
+    <style>
+        .card{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            box-shadow: 10px 10px 10px #6d6565;
+            margin: 1rem;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+        <input type="text" id="input_id" value="">
+        <input type="button" value="Submit" onclick="text()" />
+        <input type="color" value="#6d6565" id="color">
+        <button id="plus">+ cards</button>
+    
+    <div id="contenedor">
+        <div class="card" id="card">
+        </div>
+    </div>
+    <script>
+        function text(){
+            var texto = document.getElementById("input_id").value;
+            document.getElementById("card").innerHTML = texto;
+        }
+        var container = document.getElementById("contenedor");
+        var boton = document.getElementById("plus");
+        boton.addEventListener('click', () => {
+            var card = document.createElement('div');
+            card.classList.add('card');
+            container.appendChild(card);
+        });
+        var colorcito = document.getElementById("color");
+        colorcito.addEventListener("input", (e) => {
+            var tarjeta = document.getElementById("card");
+            tarjeta.style.backgroundColor = e.target.value;
+            console.log(e.target.value);
+        });
+    </script>
+</body>
+</html>
